@@ -21,9 +21,9 @@ import { OrdersModule } from './orders/orders.module';
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    ProductsModule, 
-    CategoriesModule, 
-    PostsModule, 
+    ProductsModule,
+    CategoriesModule,
+    PostsModule,
     OrdersModule
   ],
   controllers: [AppController],

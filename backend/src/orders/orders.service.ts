@@ -25,7 +25,7 @@ export class OrdersService {
     });
     const savedOrder = await this.orderRepository.save(order);
 
-    const items = createOrderDto.items.map(item => 
+    const items = createOrderDto.items.map(item =>
       this.orderItemRepository.create({
         orderId: savedOrder.id,
         productId: item.productId,
@@ -43,7 +43,7 @@ export class OrdersService {
   }
 
   findOne(id: number) {
-    return this.orderRepository.findOne({ 
+    return this.orderRepository.findOne({
       where: { id },
       relations: ['items', 'items.product']
     });

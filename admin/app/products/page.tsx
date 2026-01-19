@@ -60,7 +60,7 @@ export default function ProductsPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const productData = {
       name: formData.name,
       description: formData.description,
@@ -72,12 +72,12 @@ export default function ProductsPage() {
     };
 
     try {
-      const url = editingProduct 
+      const url = editingProduct
         ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/products/${editingProduct.id}`
         : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/products`;
-      
+
       const method = editingProduct ? 'PATCH' : 'POST';
-      
+
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
@@ -161,7 +161,7 @@ export default function ProductsPage() {
           <h2 className="text-2xl font-semibold mb-6 text-primary">
             {editingProduct ? 'Edit Product' : 'New Product'}
           </h2>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>

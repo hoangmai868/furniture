@@ -67,7 +67,7 @@ export default function Home() {
               <div className="text-center text-white px-6">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">{slide.title}</h1>
                 <p className="text-xl md:text-2xl mb-8 font-light">{slide.subtitle}</p>
-                <Link 
+                <Link
                   href="/products"
                   className="inline-block px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer text-lg"
                 >
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
           </div>
         ))}
-        
+
         {/* Slider Indicators */}
         <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {slides.map((_, index) => (
@@ -132,7 +132,7 @@ export default function Home() {
         )}
 
         <div className="text-center mt-12">
-          <Link 
+          <Link
             href="/products"
             className="inline-block px-8 py-4 bg-primary text-white rounded-lg hover:bg-secondary transition-colors cursor-pointer"
           >

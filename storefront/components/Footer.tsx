@@ -7,7 +7,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Furniture</h3>
             <p className="text-gray-300">Premium furniture for your elegant home.</p>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
@@ -16,7 +16,7 @@ export default function Footer() {
               <li><a href="/blog" className="text-gray-300 hover:text-accent transition-colors cursor-pointer">Blog</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Categories</h4>
             <ul className="space-y-2">
@@ -25,7 +25,7 @@ export default function Footer() {
               <li><a href="/products?category=dining" className="text-gray-300 hover:text-accent transition-colors cursor-pointer">Dining</a></li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-300">
@@ -35,7 +35,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
           <p>&copy; 2024 Furniture. All rights reserved.</p>
         </div>

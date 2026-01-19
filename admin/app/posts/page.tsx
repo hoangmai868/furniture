@@ -43,9 +43,9 @@ export default function PostsPage() {
       const url = editingPost
         ? `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/posts/${editingPost.id}`
         : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/posts`;
-      
+
       const method = editingPost ? 'PATCH' : 'POST';
-      
+
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
@@ -123,7 +123,7 @@ export default function PostsPage() {
           <h2 className="text-2xl font-semibold mb-6 text-primary">
             {editingPost ? 'Edit Post' : 'New Post'}
           </h2>
-          
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-semibold mb-2">Title *</label>

@@ -50,7 +50,7 @@ export default function CartPage() {
 
   const handleCheckout = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const orderData = {
       customerName: customerInfo.name,
       customerEmail: customerInfo.email,
@@ -98,7 +98,7 @@ export default function CartPage() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
           </svg>
           <p className="text-2xl text-secondary mb-6">Your cart is empty</p>
-          <Link 
+          <Link
             href="/products"
             className="inline-block px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer"
           >
@@ -158,7 +158,7 @@ export default function CartPage() {
           <div className="lg:col-span-1">
             <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl border border-gray-200 sticky top-28">
               <h2 className="text-2xl font-semibold mb-6 text-primary">Checkout</h2>
-              
+
               <form onSubmit={handleCheckout} className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold mb-2 text-foreground">Full Name</label>

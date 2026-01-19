@@ -13,7 +13,7 @@ export default function Navbar() {
           <Link href="/" className="text-2xl font-bold text-primary transition-colors hover:text-accent">
             Furniture
           </Link>
-          
+
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-foreground hover:text-accent transition-colors cursor-pointer">
               Home
@@ -29,7 +29,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button 
+          <button
             className="md:hidden text-foreground cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >

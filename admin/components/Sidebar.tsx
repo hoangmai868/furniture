@@ -28,8 +28,8 @@ export default function Sidebar() {
               key={item.href}
               href={item.href}
               className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-colors cursor-pointer ${
-                isActive 
-                  ? 'bg-accent text-white' 
+                isActive
+                  ? 'bg-accent text-white'
                   : 'hover:bg-white/10'
               }`}
             >
