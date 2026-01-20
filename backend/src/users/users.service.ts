@@ -19,21 +19,55 @@ export class UsersService {
 
   findAll() {
     return this.userRepository.find({
-      select: ['id', 'email', 'role', 'firstName', 'lastName', 'phoneNumber', 'avatar', 'address', 'isActive', 'lastLogin', 'createdAt', 'updatedAt']
+      select: [
+        'id',
+        'email',
+        'role',
+        'firstName',
+        'lastName',
+        'phoneNumber',
+        'avatar',
+        'address',
+        'isActive',
+        'lastLogin',
+        'createdAt',
+        'updatedAt',
+      ],
     });
   }
 
   findOne(id: number) {
     return this.userRepository.findOne({
       where: { id },
-      select: ['id', 'email', 'role', 'firstName', 'lastName', 'phoneNumber', 'avatar', 'address', 'isActive', 'lastLogin', 'createdAt', 'updatedAt']
+      select: [
+        'id',
+        'email',
+        'role',
+        'firstName',
+        'lastName',
+        'phoneNumber',
+        'avatar',
+        'address',
+        'isActive',
+        'lastLogin',
+        'createdAt',
+        'updatedAt',
+      ],
     });
   }
 
   findByEmail(email: string) {
     return this.userRepository.findOne({
       where: { email },
-      select: ['id', 'email', 'password', 'role', 'firstName', 'lastName', 'isActive']
+      select: [
+        'id',
+        'email',
+        'password',
+        'role',
+        'firstName',
+        'lastName',
+        'isActive',
+      ],
     });
   }
 

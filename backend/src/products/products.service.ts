@@ -24,7 +24,7 @@ export class ProductsService {
   findOne(id: number) {
     return this.productRepository.findOne({
       where: { id },
-      relations: ['category']
+      relations: ['category'],
     });
   }
 

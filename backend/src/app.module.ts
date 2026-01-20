@@ -26,7 +26,7 @@ import { UsersModule } from './users/users.module';
     CategoriesModule,
     PostsModule,
     OrdersModule,
-    UsersModule
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

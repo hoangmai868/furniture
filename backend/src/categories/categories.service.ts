@@ -19,14 +19,14 @@ export class CategoriesService {
 
   findAll() {
     return this.categoryRepository.find({
-      relations: ['parent', 'children']
+      relations: ['parent', 'children'],
     });
   }
 
   findOne(id: number) {
     return this.categoryRepository.findOne({
       where: { id },
-      relations: ['parent', 'children', 'products']
+      relations: ['parent', 'children', 'products'],
     });
   }
 

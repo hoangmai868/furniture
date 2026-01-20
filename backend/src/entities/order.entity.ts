@@ -1,4 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { OrderItem } from './order-item.entity';
 import { User } from './user.entity';
 
@@ -9,7 +18,7 @@ export class Order {
 
   @Column({
     type: 'enum',
-    enum: ['purchase', 'consultation']
+    enum: ['purchase', 'consultation'],
   })
   orderType: string;
 
@@ -27,7 +36,7 @@ export class Order {
     userId?: number;
   };
 
-  @OneToMany(() => OrderItem, orderItem => orderItem.order, { cascade: true })
+  @OneToMany(() => OrderItem, (orderItem) => orderItem.order, { cascade: true })
   items: OrderItem[];
 
   @Column({ type: 'json', nullable: true })
@@ -45,21 +54,21 @@ export class Order {
   @Column({
     type: 'enum',
     enum: ['pending', 'confirmed', 'processing', 'completed', 'cancelled'],
-    default: 'pending'
+    default: 'pending',
   })
   status: string;
 
   @Column({
     type: 'enum',
     enum: ['unpaid', 'paid', 'refunded'],
-    default: 'unpaid'
+    default: 'unpaid',
   })
   paymentStatus: string;
 
   @Column({
     type: 'enum',
     enum: ['cod', 'bank_transfer', 'credit_card'],
-    default: 'cod'
+    default: 'cod',
   })
   paymentMethod: string;
 

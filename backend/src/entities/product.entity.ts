@@ -1,4 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn, Index } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  Index,
+} from 'typeorm';
 import { Category } from './category.entity';
 
 @Entity('products')
@@ -29,7 +38,9 @@ export class Product {
   @Column({ type: 'int', nullable: true })
   categoryId: number;
 
-  @ManyToOne(() => Category, category => category.products, { onDelete: 'SET NULL' })
+  @ManyToOne(() => Category, (category) => category.products, {
+    onDelete: 'SET NULL',
+  })
   @JoinColumn({ name: 'categoryId' })
   category: Category;
 
@@ -54,7 +65,7 @@ export class Product {
   @Column({
     type: 'enum',
     enum: ['draft', 'published', 'outOfStock'],
-    default: 'draft'
+    default: 'draft',
   })
   status: string;
 

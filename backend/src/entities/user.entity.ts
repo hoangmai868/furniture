@@ -1,4 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, BeforeInsert, BeforeUpdate } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  BeforeInsert,
+  BeforeUpdate,
+} from 'typeorm';
 import * as bcrypt from 'bcryptjs';
 
 @Entity('users')
@@ -15,7 +23,7 @@ export class User {
   @Column({
     type: 'enum',
     enum: ['admin', 'editor', 'customer'],
-    default: 'customer'
+    default: 'customer',
   })
   role: string;
 

@@ -1,4 +1,11 @@
-import { IsEmail, IsString, MinLength, IsOptional, IsEnum, Matches } from 'class-validator';
+import {
+  IsEmail,
+  IsString,
+  MinLength,
+  IsOptional,
+  IsEnum,
+  Matches,
+} from 'class-validator';
 
 export class CreateUserDto {
   @IsEmail({}, { message: 'Email không hợp lệ' })

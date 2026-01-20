@@ -1,4 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn, Index } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+  Index,
+} from 'typeorm';
 import { User } from './user.entity';
 
 @Entity('posts')
@@ -48,7 +57,7 @@ export class Post {
   @Column({
     type: 'enum',
     enum: ['draft', 'published', 'archived'],
-    default: 'draft'
+    default: 'draft',
   })
   status: string;
 

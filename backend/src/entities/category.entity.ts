@@ -1,4 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  ManyToOne,
+  JoinColumn,
+  CreateDateColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 import { Product } from './product.entity';
 
 @Entity('categories')
@@ -24,11 +33,13 @@ export class Category {
   @Column({ type: 'int', nullable: true })
   parentId: number;
 
-  @ManyToOne(() => Category, category => category.children, { onDelete: 'SET NULL' })
+  @ManyToOne(() => Category, (category) => category.children, {
+    onDelete: 'SET NULL',
+  })
   @JoinColumn({ name: 'parentId' })
   parent: Category;
 
-  @OneToMany(() => Category, category => category.parent)
+  @OneToMany(() => Category, (category) => category.parent)
   children: Category[];
 
   @Column({ type: 'int', default: 0 })
@@ -47,7 +58,7 @@ export class Category {
     seoKeywords?: string[];
   };
 
-  @OneToMany(() => Product, product => product.category)
+  @OneToMany(() => Product, (product) => product.category)
   products: Product[];
 
   @CreateDateColumn()

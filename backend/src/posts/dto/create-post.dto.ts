@@ -1,4 +1,11 @@
-import { IsString, IsBoolean, IsOptional, IsEnum, IsArray, IsNumber, MaxLength } from 'class-validator';
+import {
+  IsString,
+  IsOptional,
+  IsEnum,
+  IsArray,
+  IsNumber,
+  MaxLength,
+} from 'class-validator';
 
 export class CreatePostDto {
   @IsString()
@@ -33,7 +40,16 @@ export class CreatePostDto {
   authorId?: number;
 
   @IsArray()
-  @IsEnum(['design-tips', 'interior-trends', 'maintenance', 'decoration', 'space-planning'], { each: true })
+  @IsEnum(
+    [
+      'design-tips',
+      'interior-trends',
+      'maintenance',
+      'decoration',
+      'space-planning',
+    ],
+    { each: true },
+  )
   categories: string[];
 
   @IsArray()
