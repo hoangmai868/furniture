@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Category } from '../entities/category.entity';
@@ -23,20 +23,30 @@ export class CategoriesService {
     });
   }
 
-  findOne(id: number) {
-    return this.categoryRepository.findOne({
+  async findOne(id: number) {
+    const category = await this.categoryRepository.findOne({
       where: { id },
       relations: ['parent', 'children', 'products'],
     });
+    if (!category) {
+      throw new NotFoundException(`Category with ID ${id} not found`);
+    }
+    return category;
   }
 
   async update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    await this.categoryRepository.update(id, updateCategoryDto);
+    const result = await this.categoryRepository.update(id, updateCategoryDto);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Category with ID ${id} not found`);
+    }
     return this.findOne(id);
   }
 
   async remove(id: number) {
-    await this.categoryRepository.delete(id);
+    const result = await this.categoryRepository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`Category with ID ${id} not found`);
+    }
     return { deleted: true };
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
@@ -36,8 +36,8 @@ export class UsersService {
     });
   }
 
-  findOne(id: number) {
-    return this.userRepository.findOne({
+  async findOne(id: number) {
+    const user = await this.userRepository.findOne({
       where: { id },
       select: [
         'id',
@@ -54,6 +54,10 @@ export class UsersService {
         'updatedAt',
       ],
     });
+    if (!user) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
+    return user;
   }
 
   findByEmail(email: string) {
@@ -72,12 +76,18 @@ export class UsersService {
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
-    await this.userRepository.update(id, updateUserDto);
+    const result = await this.userRepository.update(id, updateUserDto);
+    if (result.affected === 0) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
     return this.findOne(id);
   }
 
   async remove(id: number) {
-    await this.userRepository.delete(id);
+    const result = await this.userRepository.delete(id);
+    if (result.affected === 0) {
+      throw new NotFoundException(`User with ID ${id} not found`);
+    }
     return { deleted: true };
   }
 }
