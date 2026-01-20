@@ -66,7 +66,8 @@ export class User {
   @BeforeInsert()
   @BeforeUpdate()
   async hashPassword() {
-    if (this.password) {
+    // Only hash if password is present and not already hashed
+    if (this.password && !this.password.startsWith('$2a$') && !this.password.startsWith('$2b$')) {
       this.password = await bcrypt.hash(this.password, 10);
     }
   }

@@ -46,6 +46,7 @@ export class OrdersService {
     const order = await this.findOne(id);
 
     // Update status history if status changed
+    // TODO: In production, updatedBy should come from authenticated user context
     if (updateOrderDto.status && updateOrderDto.status !== order.status) {
       const newHistoryEntry = {
         status: updateOrderDto.status,

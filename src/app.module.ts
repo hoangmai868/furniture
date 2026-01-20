@@ -20,6 +20,8 @@ import { OrdersModule } from './orders/orders.module';
       password: process.env.DB_PASSWORD || '',
       database: process.env.DB_DATABASE || 'furniture_db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      // WARNING: synchronize:true should only be used in development
+      // For production, use TypeORM migrations to safely manage schema changes
       synchronize: process.env.NODE_ENV === 'development',
       logging: process.env.NODE_ENV === 'development',
     }),
