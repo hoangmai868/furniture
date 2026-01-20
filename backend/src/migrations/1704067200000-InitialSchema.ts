@@ -167,14 +167,14 @@ export class InitialSchema1704067200000 implements MigrationInterface {
       ALTER TABLE \`order_items\`
       ADD CONSTRAINT \`FK_order_item_order\`
       FOREIGN KEY (\`orderId\`) REFERENCES \`orders\`(\`id\`)
-      ON DELETE NO ACTION ON UPDATE NO ACTION
+      ON DELETE CASCADE ON UPDATE NO ACTION
     `);
 
     await queryRunner.query(`
       ALTER TABLE \`order_items\`
       ADD CONSTRAINT \`FK_order_item_product\`
       FOREIGN KEY (\`productId\`) REFERENCES \`products\`(\`id\`)
-      ON DELETE NO ACTION ON UPDATE NO ACTION
+      ON DELETE RESTRICT ON UPDATE NO ACTION
     `);
   }
 
