@@ -16,36 +16,30 @@ export class OrdersService {
   ) {}
 
   async create(createOrderDto: CreateOrderDto) {
-    const order = this.orderRepository.create({
-      customerName: createOrderDto.customerName,
-      customerEmail: createOrderDto.customerEmail,
-      customerPhone: createOrderDto.customerPhone,
-      shippingAddress: createOrderDto.shippingAddress,
-      totalPrice: createOrderDto.totalPrice,
-    });
-    const savedOrder = await this.orderRepository.save(order);
-
-    const items = createOrderDto.items.map(item =>
-      this.orderItemRepository.create({
-        orderId: savedOrder.id,
-        productId: item.productId,
-        quantity: item.quantity,
-        price: item.price,
-      })
-    );
-    await this.orderItemRepository.save(items);
-
-    return this.findOne(savedOrder.id);
+    const order = this.orderRepository.create(createOrderDto);
+    if (createOrderDto.items && createOrderDto.items.length > 0) {
+      const items = createOrderDto.items.map(item =>
+        this.orderItemRepository.create({
+          productId: item.productId,
+          quantity: item.quantity,
+          price: item.price,
+        })
+      );
+      order.items = items;
+    }
+    return this.orderRepository.save(order);
   }
 
   findAll() {
-    return this.orderRepository.find({ relations: ['items', 'items.product'] });
+    return this.orderRepository.find({
+      relations: ['items', 'items.product', 'assignedStaff']
+    });
   }
 
   findOne(id: number) {
     return this.orderRepository.findOne({
       where: { id },
-      relations: ['items', 'items.product']
+      relations: ['items', 'items.product', 'assignedStaff']
     });
   }
 

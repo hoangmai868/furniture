@@ -18,11 +18,16 @@ export class CategoriesService {
   }
 
   findAll() {
-    return this.categoryRepository.find();
+    return this.categoryRepository.find({
+      relations: ['parent', 'children']
+    });
   }
 
   findOne(id: number) {
-    return this.categoryRepository.findOne({ where: { id } });
+    return this.categoryRepository.findOne({
+      where: { id },
+      relations: ['parent', 'children', 'products']
+    });
   }
 
   async update(id: number, updateCategoryDto: UpdateCategoryDto) {

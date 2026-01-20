@@ -18,11 +18,14 @@ export class PostsService {
   }
 
   findAll() {
-    return this.postRepository.find({ where: { published: true } });
+    return this.postRepository.find({ relations: ['author'] });
   }
 
   findOne(id: number) {
-    return this.postRepository.findOne({ where: { id } });
+    return this.postRepository.findOne({
+      where: { id },
+      relations: ['author']
+    });
   }
 
   async update(id: number, updatePostDto: UpdatePostDto) {
