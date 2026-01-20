@@ -10,6 +10,9 @@ COPY . .
 
 RUN npm run build
 
+# Make the entrypoint script executable
+RUN chmod +x docker-entrypoint.sh
+
 EXPOSE 3001
 
-CMD ["npm", "run", "start:prod"]
+CMD ["./docker-entrypoint.sh"]
