@@ -24,13 +24,13 @@ export default function BlogPage() {
   return (
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-12">
-        <h1 className="text-5xl font-bold text-primary mb-4">Blog & News</h1>
-        <p className="text-lg text-secondary">Interior design tips and inspiration</p>
+        <h1 className="text-5xl font-bold text-primary mb-4">Blog & Tin tức</h1>
+        <p className="text-lg text-secondary">Mẹo và cảm hứng thiết kế nội thất</p>
       </div>
 
       {posts.length === 0 ? (
         <div className="text-center py-12 bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200">
-          <p className="text-secondary text-lg">No blog posts yet. Check back soon!</p>
+          <p className="text-secondary text-lg">Chưa có bài viết nào. Vui lòng quay lại sau!</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -62,7 +62,7 @@ export default function BlogPage() {
                     href={`/blog/${post.id}`}
                     className="text-accent hover:text-accent/80 transition-colors font-semibold"
                   >
-                    Read More →
+                    Đọc thêm →
                   </Link>
                 </div>
               </div>

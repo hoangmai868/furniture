@@ -55,11 +55,11 @@ export default function PostsPage() {
       if (res.ok) {
         fetchPosts();
         resetForm();
-        alert(editingPost ? 'Post updated!' : 'Post created!');
+        alert(editingPost ? 'Bài viết đã được cập nhật!' : 'Bài viết đã được tạo!');
       }
     } catch (error) {
       console.error('Error saving post:', error);
-      alert('Error saving post');
+      alert('Lỗi lưu bài viết');
     }
   };
 
@@ -75,7 +75,7 @@ export default function PostsPage() {
   };
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Are you sure you want to delete this post?')) return;
+    if (!confirm('Bạn có chắc chắn muốn xóa bài viết này không?')) return;
 
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'}/posts/${id}`, {
@@ -84,11 +84,11 @@ export default function PostsPage() {
 
       if (res.ok) {
         fetchPosts();
-        alert('Post deleted!');
+        alert('Bài viết đã được xóa!');
       }
     } catch (error) {
       console.error('Error deleting post:', error);
-      alert('Error deleting post');
+      alert('Lỗi xóa bài viết');
     }
   };
 
@@ -107,26 +107,26 @@ export default function PostsPage() {
     <div>
       <div className="flex justify-between items-center mb-8">
         <div>
-          <h1 className="text-4xl font-bold text-primary mb-2">Blog Posts</h1>
-          <p className="text-secondary">Manage blog content and articles</p>
+          <h1 className="text-4xl font-bold text-primary mb-2">Bài viết</h1>
+          <p className="text-secondary">Quản lý nội dung blog và bài viết</p>
         </div>
         <button
           onClick={() => setShowForm(!showForm)}
           className="px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer"
         >
-          {showForm ? 'Cancel' : '+ Add Post'}
+          {showForm ? 'Hủy' : '+ Thêm bài viết'}
         </button>
       </div>
 
       {showForm && (
         <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200 mb-8">
           <h2 className="text-2xl font-semibold mb-6 text-primary">
-            {editingPost ? 'Edit Post' : 'New Post'}
+            {editingPost ? 'Sửa bài viết' : 'Bài viết mới'}
           </h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-semibold mb-2">Title *</label>
+              <label className="block text-sm font-semibold mb-2">Tiêu đề *</label>
               <input
                 type="text"
                 required
@@ -137,7 +137,7 @@ export default function PostsPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Thumbnail URL</label>
+              <label className="block text-sm font-semibold mb-2">URL hình ảnh thumbnail</label>
               <input
                 type="text"
                 value={formData.thumbnail}
@@ -148,14 +148,14 @@ export default function PostsPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Content *</label>
+              <label className="block text-sm font-semibold mb-2">Nội dung *</label>
               <textarea
                 required
                 rows={12}
                 value={formData.content}
                 onChange={(e) => setFormData({ ...formData, content: e.target.value })}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-                placeholder="Write your blog post content here..."
+                placeholder="Viết nội dung bài viết của bạn ở đây..."
               />
             </div>
 
@@ -168,7 +168,7 @@ export default function PostsPage() {
                 className="w-4 h-4 text-accent focus:ring-2 focus:ring-accent border-gray-300 rounded cursor-pointer"
               />
               <label htmlFor="published" className="ml-2 text-sm font-semibold cursor-pointer">
-                Published (visible on storefront)
+                Đã xuất bản (hiển thị trên cửa hàng)
               </label>
             </div>
 
@@ -177,7 +177,7 @@ export default function PostsPage() {
                 type="submit"
                 className="px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer"
               >
-                {editingPost ? 'Update Post' : 'Create Post'}
+                {editingPost ? 'Cập nhật bài viết' : 'Tạo bài viết'}
               </button>
               <button
                 type="button"
@@ -211,7 +211,7 @@ export default function PostsPage() {
                 <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
                   post.published ? 'bg-success text-white' : 'bg-gray-200 text-gray-700'
                 }`}>
-                  {post.published ? 'Published' : 'Draft'}
+                  {post.published ? 'Đã xuất bản' : 'Nháp'}
                 </span>
                 <span className="text-sm text-secondary">
                   {new Date(post.createdAt).toLocaleDateString()}

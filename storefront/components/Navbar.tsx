@@ -11,21 +11,21 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-primary transition-colors hover:text-accent">
-            Furniture
+            Nội thất
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-foreground hover:text-accent transition-colors cursor-pointer">
-              Home
+              Trang chủ
             </Link>
             <Link href="/products" className="text-foreground hover:text-accent transition-colors cursor-pointer">
-              Products
+              Sản phẩm
             </Link>
             <Link href="/blog" className="text-foreground hover:text-accent transition-colors cursor-pointer">
               Blog
             </Link>
             <Link href="/cart" className="px-6 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer">
-              Cart
+              Giỏ hàng
             </Link>
           </div>
 
@@ -43,16 +43,16 @@ export default function Navbar() {
           <div className="md:hidden mt-4 pt-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4">
               <Link href="/" className="text-foreground hover:text-accent transition-colors cursor-pointer">
-                Home
+                Trang chủ
               </Link>
               <Link href="/products" className="text-foreground hover:text-accent transition-colors cursor-pointer">
-                Products
+                Sản phẩm
               </Link>
               <Link href="/blog" className="text-foreground hover:text-accent transition-colors cursor-pointer">
                 Blog
               </Link>
               <Link href="/cart" className="px-6 py-2 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer text-center">
-                Cart
+                Giỏ hàng
               </Link>
             </div>
           </div>

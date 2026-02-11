@@ -72,24 +72,24 @@ export default function CartPage() {
       });
 
       if (response.ok) {
-        alert('Order placed successfully!');
+        alert('Đơn hàng đã được đặt thành công!');
         setCartItems([]);
         localStorage.removeItem('cart');
         setCustomerInfo({ name: '', email: '', phone: '', address: '' });
       } else {
-        alert('Failed to place order. Please try again.');
+        alert('Không thể đặt hàng. Vui lòng thử lại.');
       }
     } catch (error) {
       console.error('Error placing order:', error);
-      alert('Error placing order. Please try again.');
+      alert('Lỗi khi đặt hàng. Vui lòng thử lại.');
     }
   };
 
   return (
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-12">
-        <h1 className="text-5xl font-bold text-primary mb-4">Shopping Cart</h1>
-        <p className="text-lg text-secondary">Review your items and checkout</p>
+        <h1 className="text-5xl font-bold text-primary mb-4">Giỏ hàng</h1>
+        <p className="text-lg text-secondary">Kiểm tra các mục của bạn và thanh toán</p>
       </div>
 
       {cartItems.length === 0 ? (
@@ -97,12 +97,12 @@ export default function CartPage() {
           <svg className="w-24 h-24 mx-auto mb-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
           </svg>
-          <p className="text-2xl text-secondary mb-6">Your cart is empty</p>
+          <p className="text-2xl text-secondary mb-6">Giỏ hàng của bạn trống</p>
           <Link
             href="/products"
             className="inline-block px-8 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer"
           >
-            Continue Shopping
+            Tiếp tục mua sắm
           </Link>
         </div>
       ) : (
@@ -157,11 +157,11 @@ export default function CartPage() {
           {/* Checkout Form */}
           <div className="lg:col-span-1">
             <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl border border-gray-200 sticky top-28">
-              <h2 className="text-2xl font-semibold mb-6 text-primary">Checkout</h2>
+              <h2 className="text-2xl font-semibold mb-6 text-primary">Thanh toán</h2>
 
               <form onSubmit={handleCheckout} className="space-y-4">
                 <div>
-                  <label className="block text-sm font-semibold mb-2 text-foreground">Full Name</label>
+                  <label className="block text-sm font-semibold mb-2 text-foreground">Họ và tên</label>
                   <input
                     type="text"
                     required
@@ -183,7 +183,7 @@ export default function CartPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2 text-foreground">Phone</label>
+                  <label className="block text-sm font-semibold mb-2 text-foreground">Điện thoại</label>
                   <input
                     type="tel"
                     required
@@ -194,7 +194,7 @@ export default function CartPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2 text-foreground">Shipping Address</label>
+                  <label className="block text-sm font-semibold mb-2 text-foreground">Địa chỉ giao hàng</label>
                   <textarea
                     required
                     rows={3}
@@ -206,7 +206,7 @@ export default function CartPage() {
 
                 <div className="border-t pt-4 mt-4">
                   <div className="flex justify-between mb-4">
-                    <span className="text-lg font-semibold">Total:</span>
+                    <span className="text-lg font-semibold">Tổng:</span>
                     <span className="text-2xl font-bold text-accent">${totalPrice.toFixed(2)}</span>
                   </div>
 
@@ -214,7 +214,7 @@ export default function CartPage() {
                     type="submit"
                     className="w-full px-6 py-4 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer font-semibold text-lg"
                   >
-                    Place Order
+                    Đặt hàng
                   </button>
                 </div>
               </form>

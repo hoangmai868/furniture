@@ -42,17 +42,17 @@ export default function Dashboard() {
   }, []);
 
   const cards = [
-    { title: 'Total Products', value: stats.products, icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4', color: 'bg-blue-500' },
-    { title: 'Blog Posts', value: stats.posts, icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-purple-500' },
-    { title: 'Total Orders', value: stats.orders, icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z', color: 'bg-green-500' },
-    { title: 'Revenue', value: `$${stats.revenue.toFixed(2)}`, icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: 'bg-yellow-500' },
+    { title: 'Tổng sản phẩm', value: stats.products, icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4', color: 'bg-blue-500' },
+    { title: 'Bài viết', value: stats.posts, icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', color: 'bg-purple-500' },
+    { title: 'Tổng đơn hàng', value: stats.orders, icon: 'M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z', color: 'bg-green-500' },
+    { title: 'Doanh thu', value: `$${stats.revenue.toFixed(2)}`, icon: 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z', color: 'bg-yellow-500' },
   ];
 
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-primary mb-2">Dashboard</h1>
-        <p className="text-secondary">Welcome to your furniture store management system</p>
+        <h1 className="text-4xl font-bold text-primary mb-2">Tổng quan</h1>
+        <p className="text-secondary">Chào mừng đến hệ thống quản lý cửa hàng nội thất</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -73,27 +73,27 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200">
-          <h2 className="text-2xl font-semibold mb-4 text-primary">Quick Actions</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-primary">Thao tác nhanh</h2>
           <div className="space-y-3">
             <a href="/products" className="block px-4 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer">
-              + Add New Product
+              + Thêm sản phẩm mới
             </a>
             <a href="/posts" className="block px-4 py-3 bg-accent text-white rounded-lg hover:bg-accent/90 transition-colors cursor-pointer">
-              + Create Blog Post
+              + Tạo bài viết
             </a>
             <a href="/orders" className="block px-4 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors cursor-pointer">
-              View All Orders
+              Xem tất cả đơn hàng
             </a>
           </div>
         </div>
 
         <div className="bg-white rounded-xl shadow-md p-6 border border-gray-200">
-          <h2 className="text-2xl font-semibold mb-4 text-primary">System Info</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-primary">Thông tin hệ thống</h2>
           <div className="space-y-3 text-secondary">
-            <p><strong>Status:</strong> <span className="text-success">Online</span></p>
-            <p><strong>Version:</strong> 1.0.0</p>
-            <p><strong>API:</strong> Connected</p>
-            <p><strong>Database:</strong> MySQL</p>
+            <p><strong>Trạng thái:</strong> <span className="text-success">Trực tuyến</span></p>
+            <p><strong>Phiên bản:</strong> 1.0.0</p>
+            <p><strong>API:</strong> Đã kết nối</p>
+            <p><strong>Cơ sở dữ liệu:</strong> MySQL</p>
           </div>
         </div>
       </div>
