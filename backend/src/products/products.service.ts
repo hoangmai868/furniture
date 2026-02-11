@@ -13,8 +13,28 @@ export class ProductsService {
   ) {}
 
   create(createProductDto: CreateProductDto) {
+    // Auto-generate slug from name if not provided
+    if (!createProductDto.slug) {
+      createProductDto.slug = this.generateSlug(createProductDto.name);
+    }
+    
+    // Set default empty description if not provided
+    if (!createProductDto.description) {
+      createProductDto.description = '';
+    }
+    
     const product = this.productRepository.create(createProductDto);
     return this.productRepository.save(product);
+  }
+
+  private generateSlug(name: string): string {
+    return name
+      .toLowerCase()
+      .trim()
+      .replace(/[^\w\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .replace(/^-+|-+$/g, ''); // Remove leading/trailing hyphens
   }
 
   findAll() {

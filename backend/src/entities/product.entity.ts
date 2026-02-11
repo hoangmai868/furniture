@@ -22,7 +22,7 @@ export class Product {
   @Column({ length: 255, unique: true })
   slug: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   description: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
