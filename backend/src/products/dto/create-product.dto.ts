@@ -13,10 +13,12 @@ export class CreateProductDto {
   name: string;
 
   @IsString()
-  slug: string;
+  @IsOptional()
+  slug?: string;
 
   @IsString()
-  description: string;
+  @IsOptional()
+  description?: string;
 
   @IsNumber()
   @Min(0)

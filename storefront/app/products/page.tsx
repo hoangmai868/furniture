@@ -52,19 +52,19 @@ export default function ProductsPage() {
   return (
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-12">
-        <h1 className="text-5xl font-bold text-primary mb-4">Our Products</h1>
-        <p className="text-lg text-secondary">Explore our premium furniture collection</p>
+        <h1 className="text-5xl font-bold text-primary mb-4">Sản phẩm của chúng tôi</h1>
+        <p className="text-lg text-secondary">Khám phá bộ sưu tập nội thất cao cấp</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         {/* Filters Sidebar */}
         <aside className="lg:col-span-1">
           <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl border border-gray-200 sticky top-28">
-            <h2 className="text-2xl font-semibold mb-6 text-primary">Filters</h2>
+            <h2 className="text-2xl font-semibold mb-6 text-primary">Bộ lọc</h2>
 
             {/* Category Filter */}
             <div className="mb-6">
-              <h3 className="font-semibold mb-3 text-foreground">Category</h3>
+              <h3 className="font-semibold mb-3 text-foreground">Danh mục</h3>
               <div className="space-y-2">
                 <button
                   onClick={() => setSelectedCategory(null)}
@@ -72,7 +72,7 @@ export default function ProductsPage() {
                     selectedCategory === null ? 'bg-accent text-white' : 'hover:bg-gray-100'
                   }`}
                 >
-                  All
+                  Tất cả
                 </button>
                 {categories.map(cat => (
                   <button
@@ -90,32 +90,32 @@ export default function ProductsPage() {
 
             {/* Price Filter */}
             <div className="mb-6">
-              <h3 className="font-semibold mb-3 text-foreground">Price Range</h3>
+              <h3 className="font-semibold mb-3 text-foreground">Khoảng giá</h3>
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent"
               >
-                <option value="all">All Prices</option>
-                <option value="under-500">Under $500</option>
+                <option value="all">Tất cả mức giá</option>
+                <option value="under-500">Dưới $500</option>
                 <option value="500-1000">$500 - $1000</option>
-                <option value="over-1000">Over $1000</option>
+                <option value="over-1000">Trên $1000</option>
               </select>
             </div>
 
             {/* Material Filter */}
             <div className="mb-6">
-              <h3 className="font-semibold mb-3 text-foreground">Material</h3>
+              <h3 className="font-semibold mb-3 text-foreground">Chất liệu</h3>
               <select
                 value={material}
                 onChange={(e) => setMaterial(e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-accent"
               >
-                <option value="all">All Materials</option>
-                <option value="Wood">Wood</option>
-                <option value="Metal">Metal</option>
-                <option value="Fabric">Fabric</option>
-                <option value="Leather">Leather</option>
+                <option value="all">Tất cả chất liệu</option>
+                <option value="Wood">Gỗ</option>
+                <option value="Metal">Kim loại</option>
+                <option value="Fabric">Vải</option>
+                <option value="Leather">Da</option>
               </select>
             </div>
 
@@ -127,7 +127,7 @@ export default function ProductsPage() {
               }}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-100 transition-colors cursor-pointer"
             >
-              Reset Filters
+              Đặt lại bộ lọc
             </button>
           </div>
         </aside>
@@ -136,7 +136,7 @@ export default function ProductsPage() {
         <div className="lg:col-span-3">
           {filteredProducts.length === 0 ? (
             <div className="text-center py-12 bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200">
-              <p className="text-secondary text-lg">No products found. Try adjusting your filters.</p>
+              <p className="text-secondary text-lg">Không tìm thấy sản phẩm nào. Thử điều chỉnh bộ lọc của bạn.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
@@ -160,7 +160,7 @@ export default function ProductsPage() {
                     <h3 className="text-xl font-semibold mb-2 text-primary">{product.name}</h3>
                     <p className="text-secondary mb-2 line-clamp-2">{product.description}</p>
                     {product.material && (
-                      <p className="text-sm text-secondary mb-3">Material: {product.material}</p>
+                      <p className="text-sm text-secondary mb-3">Chất liệu: {product.material}</p>
                     )}
                     <p className="text-2xl font-bold text-accent">${product.price}</p>
                   </div>

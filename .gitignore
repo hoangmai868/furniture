@@ -44,3 +44,6 @@ Thumbs.db
 .cache/
 .temp/
 tmp/
+
+# Uploads
+backend/public/uploads/

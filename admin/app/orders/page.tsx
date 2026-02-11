@@ -52,12 +52,12 @@ export default function OrdersPage() {
 
       if (res.ok) {
         fetchOrders();
-        alert('Order status updated!');
+        alert('Trạng thái đơn hàng đã được cập nhật!');
         setSelectedOrder(null);
       }
     } catch (error) {
       console.error('Error updating order:', error);
-      alert('Error updating order');
+      alert('Lỗi cập nhật đơn hàng');
     }
   };
 
@@ -75,20 +75,20 @@ export default function OrdersPage() {
   return (
     <div>
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-primary mb-2">Orders</h1>
-        <p className="text-secondary">Manage customer orders and delivery</p>
+        <h1 className="text-4xl font-bold text-primary mb-2">Đơn hàng</h1>
+        <p className="text-secondary">Quản lý đơn hàng và giao hàng của khách hàng</p>
       </div>
 
       <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
         <table className="w-full">
           <thead className="bg-gray-50">
             <tr>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Order ID</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Customer</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Total</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Status</th>
-              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Date</th>
-              <th className="px-6 py-4 text-right text-sm font-semibold text-primary">Actions</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Mã đơn hàng</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Khách hàng</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Tổng cộng</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Trạng thái</th>
+              <th className="px-6 py-4 text-left text-sm font-semibold text-primary">Ngày</th>
+              <th className="px-6 py-4 text-right text-sm font-semibold text-primary">Thao tác</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
@@ -113,7 +113,7 @@ export default function OrdersPage() {
                     onClick={() => setSelectedOrder(order)}
                     className="text-accent hover:text-accent/80 cursor-pointer"
                   >
-                    View Details
+                    Xem chi tiết
                   </button>
                 </td>
               </tr>
@@ -128,9 +128,9 @@ export default function OrdersPage() {
             <div className="p-6 border-b border-gray-200">
               <div className="flex justify-between items-start">
                 <div>
-                  <h2 className="text-2xl font-bold text-primary mb-2">Order #{selectedOrder.id}</h2>
+                  <h2 className="text-2xl font-bold text-primary mb-2">Đơn hàng #{selectedOrder.id}</h2>
                   <p className="text-secondary">
-                    Placed on {new Date(selectedOrder.createdAt).toLocaleDateString()}
+                    Được đặt vào {new Date(selectedOrder.createdAt).toLocaleDateString()}
                   </p>
                 </div>
                 <button
@@ -146,23 +146,23 @@ export default function OrdersPage() {
 
             <div className="p-6 space-y-6">
               <div>
-                <h3 className="text-lg font-semibold mb-3 text-primary">Customer Information</h3>
+                <h3 className="text-lg font-semibold mb-3 text-primary">Thông tin khách hàng</h3>
                 <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-                  <p><strong>Name:</strong> {selectedOrder.customerName}</p>
+                  <p><strong>Tên:</strong> {selectedOrder.customerName}</p>
                   <p><strong>Email:</strong> {selectedOrder.customerEmail}</p>
-                  <p><strong>Phone:</strong> {selectedOrder.customerPhone}</p>
-                  <p><strong>Address:</strong> {selectedOrder.shippingAddress}</p>
+                  <p><strong>Điện thoại:</strong> {selectedOrder.customerPhone}</p>
+                  <p><strong>Địa chỉ:</strong> {selectedOrder.shippingAddress}</p>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold mb-3 text-primary">Order Items</h3>
+                <h3 className="text-lg font-semibold mb-3 text-primary">Sản phẩm trong đơn</h3>
                 <div className="space-y-2">
                   {selectedOrder.items?.map((item) => (
                     <div key={item.id} className="bg-gray-50 rounded-lg p-4 flex justify-between items-center">
                       <div>
-                        <p className="font-medium text-primary">{item.product?.name || 'Product'}</p>
-                        <p className="text-sm text-secondary">Quantity: {item.quantity}</p>
+                        <p className="font-medium text-primary">{item.product?.name || 'Sản phẩm'}</p>
+                        <p className="text-sm text-secondary">Số lượng: {item.quantity}</p>
                       </div>
                       <p className="text-accent font-semibold">${item.price}</p>
                     </div>
@@ -172,12 +172,12 @@ export default function OrdersPage() {
 
               <div className="border-t pt-4">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="text-lg font-semibold">Total:</span>
+                  <span className="text-lg font-semibold">Tổng cộng:</span>
                   <span className="text-2xl font-bold text-accent">${selectedOrder.totalPrice}</span>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold mb-2">Update Status</label>
+                  <label className="block text-sm font-semibold mb-2">Cập nhật trạng thái</label>
                   <div className="flex gap-2">
                     {['pending', 'processing', 'shipped', 'delivered', 'cancelled'].map((status) => (
                       <button
