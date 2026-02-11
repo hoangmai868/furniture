@@ -99,6 +99,10 @@ export default function ProductsPage() {
     let imageUrls = uploadedImages;
     if (selectedFiles && selectedFiles.length > 0) {
       const newImages = await uploadImages();
+      if (newImages.length === 0) {
+        alert('Lỗi khi tải ảnh lên. Vui lòng thử lại.');
+        return;
+      }
       imageUrls = [...uploadedImages, ...newImages];
     }
 
@@ -309,12 +313,13 @@ export default function ProductsPage() {
             )}
 
             <div>
-              <label className="block text-sm font-semibold mb-2">Mô tả</label>
+              <label className="block text-sm font-semibold mb-2">Mô tả (tùy chọn)</label>
               <textarea
                 rows={4}
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
+                placeholder="Nhập mô tả sản phẩm..."
               />
             </div>
 

@@ -61,7 +61,7 @@ export class ProductsController {
     }
 
     const imageUrls = files.map((file) => {
-      return `/public/uploads/products/${file.filename}`;
+      return `/uploads/products/${file.filename}`;
     });
 
     return {
