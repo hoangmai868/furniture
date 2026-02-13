@@ -30,9 +30,11 @@ services:
       DB_PASSWORD: furniture123
       DB_DATABASE: furniture_db
       PORT: 3001
+      NODE_ENV: development
     depends_on:
       mysql:
         condition: service_healthy
+    command: ["npm", "run", "start:dev"]
     restart: unless-stopped
 
   storefront:
@@ -44,8 +46,11 @@ services:
       - "3000:3000"
     environment:
       NEXT_PUBLIC_API_URL: http://backend:3001
+      HOST: 0.0.0.0
+      NODE_ENV: development
     depends_on:
       - backend
+    command: ["npm", "run", "dev", "--", "-H", "0.0.0.0"]
     restart: unless-stopped
 
   admin:
@@ -57,8 +62,11 @@ services:
       - "3002:3002"
     environment:
       NEXT_PUBLIC_API_URL: http://backend:3001
+      HOST: 0.0.0.0
+      NODE_ENV: development
     depends_on:
       - backend
+    command: ["npm", "run", "dev", "--", "-H", "0.0.0.0"]
     restart: unless-stopped
 
 volumes:

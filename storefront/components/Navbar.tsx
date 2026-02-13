@@ -7,7 +7,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-4 left-4 right-4 z-50 bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg">
+    <nav className="fixed top-0 left-4 right-4 z-50 bg-white/80 backdrop-blur-md border border-gray-200 rounded-2xl shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-primary transition-colors hover:text-accent">

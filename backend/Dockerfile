@@ -8,11 +8,8 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run build
-
-# Make the entrypoint script executable
-RUN chmod +x docker-entrypoint.sh
+ENV NODE_ENV=development
 
 EXPOSE 3001
 
-CMD ["./docker-entrypoint.sh"]
+CMD ["npm", "run", "start:dev"]
